@@ -7,10 +7,13 @@ export interface Product {
     description: string;
     price: number;
     discountPercentage: number;
+    availabilityStatus: string;
+    tags: string[];
     rating: number;
     stock: number;
     brand: string;
     category: string;
+    reviews: string[];
     thumbnail: string;
     images: string[];
 }
@@ -19,13 +22,22 @@ export interface NewProduct {
     title: string;
     description: string;
     price: number;
+    availabilityStatus: string;
+    tags: string[];
     discountPercentage: number;
     rating: number;
     stock: number;
     brand: string;
     category: string;
+    reviews: string[];
     thumbnail: string;
     images: string[];
+}
+
+export interface Category {
+    slug: string;
+    name: string;
+    url: string;
 }
 
 export const productsApi = createApi({
@@ -35,6 +47,11 @@ export const productsApi = createApi({
         // Get all products
         getAllProduct: builder.query<{ products: Product[], total: number }, { limit: number, skip: number }>({
             query: ({ limit, skip }) => `/products?limit=${limit}&skip=${skip}`,
+        }),
+
+        //Get all products Category 
+        getAllProductCategories: builder.query<Category[], void>({
+            query: () => '/products/categories',
         }),
 
         // Get a specific product by ID
@@ -56,7 +73,7 @@ export const productsApi = createApi({
         updateProduct: builder.mutation<Product, { id: number; updatedProduct: Partial<NewProduct> }>({
             query: ({ id, updatedProduct }) => ({
                 url: `products/${id}`,
-                method: "PUT",
+                method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: updatedProduct,
             }),
@@ -67,6 +84,7 @@ export const productsApi = createApi({
 // Export hooks
 export const {
     useGetAllProductQuery,
+    useGetAllProductCategoriesQuery,
     useGetSingleProductQuery,
     useAddNewProductMutation,
     useUpdateProductMutation,

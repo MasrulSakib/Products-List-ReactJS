@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router";
 import { useGetSingleProductQuery } from "../../app/services/ProductData";
 import { Avatar, Button, Card, Space } from "antd";
 import { ArrowLeftOutlined, EditOutlined } from '@ant-design/icons';
+import '../loader/loader.css'
 
 
 const ProductDetails = () => {
@@ -15,11 +16,17 @@ const ProductDetails = () => {
     }
 
     if (isLoading) {
-        return <h1>Loading...</h1>;
+        return <div className="flex place-items-center place-content-center h-screen">
+            <div className="loader"></div>
+        </div>
     }
 
     const handleBackToList = () => {
         navigate(-1)
+    }
+
+    const handleUpdateProduct = (id: string | undefined) => {
+        navigate(`/update-product/${id}`)
     }
 
     return (
@@ -82,6 +89,7 @@ const ProductDetails = () => {
                         type="primary"
                         size="large"
                         icon={<EditOutlined />}
+                        onClick={() => handleUpdateProduct(id)}
                         className="flex items-center px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white"
                     >
                         Edit Product

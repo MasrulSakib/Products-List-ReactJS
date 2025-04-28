@@ -4,6 +4,7 @@ import { Table, Button } from "antd";
 import { ColumnsType } from "antd/es/table";
 import { useState } from "react";
 import { Link } from "react-router";
+import "../loader/loader.css"
 
 const ProductsList = () => {
     const [page, setPage] = useState<number>(1);
@@ -68,7 +69,9 @@ const ProductsList = () => {
 
 
     if (isLoading) {
-        return <h1>Loading...</h1>;
+        return <div className=" flex place-items-center place-content-center h-screen">
+            <div className="loader"></div>
+        </div>
     }
 
     if (isError) {
