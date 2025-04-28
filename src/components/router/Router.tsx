@@ -7,15 +7,13 @@ export const router = createBrowserRouter([
     {
         path: "/",
         element: <Root />,
-        children: [
-            {
-                path: "products",
-                element: <ProductsList />,
-            },
-            {
-                path: "products/:id",
-                element: <ProductDetails />,
-            },
-        ],
+    },
+    {
+        path: "products",
+        element: <ProductsList />,
+    },
+    {
+        path: "products/:id",
+        element: <ProductDetails />,
     },
 ]);

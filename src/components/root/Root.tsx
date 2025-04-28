@@ -1,10 +1,10 @@
-import { Outlet } from "react-router";
 import '../../App.css'
+import ProductsList from "../productsList/ProductsList";
 
 const Root = () => {
     return (
         <div>
-            <Outlet></Outlet>
+            <ProductsList></ProductsList>
         </div>
     );
 };

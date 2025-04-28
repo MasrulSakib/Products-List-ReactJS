@@ -1,3 +1,4 @@
+import { ProductFilled, ProfileOutlined } from "@ant-design/icons";
 import { Product, useGetAllProductQuery } from "../../app/services/ProductData";
 import { Table, Button } from "antd";
 import { ColumnsType } from "antd/es/table";
@@ -53,14 +54,16 @@ const ProductsList = () => {
             render: (_, record) => (
                 <Link to={`/products/${record.id}`}>
                     <Button
-                        className="custom-btn"
-                        type="primary"
+                        type="default"
+                        danger
+                        icon={<ProductFilled />}
                     >
                         Details
                     </Button>
                 </Link>
             ),
-        },
+        }
+
     ];
 
 
@@ -89,33 +92,41 @@ const ProductsList = () => {
             <h2 className="text-center text-3xl font-semibold mx-auto mt-12">Products List</h2>
             <div className="flex justify-end">
                 <Button
-                    type="primary"
+                    type="default"
+                    ghost
+                    size="large"
+                    icon={<ProfileOutlined />}
                     onClick={handleToggleItems}
-                    className="my-5 custom-btn"
+                    className="my-5 !bg-gradient-to-r from-cyan-500  to-purple-500 !text-white
+                     !border-0 !shadow-md !rounded-lg !px-6 !py-2"
                 >
                     {showAll ? "Show Paginated Products" : "Load All Products"}
                 </Button>
+
             </div>
 
-            <Table<Product>
-                dataSource={data?.products}
-                columns={columns}
-                rowKey="id"
-                loading={isLoading}
-                className="custom-table"
-                pagination={!showAll ? {
-                    current: page,
-                    position: ['bottomCenter'],
-                    pageSize: pageSize,
-                    total: data?.total,
-                    showSizeChanger: true,
-                    pageSizeOptions: ['5', '15', '20', '50', '100'],
-                    onChange: (newPage, newPageSize) => {
-                        setPage(newPage);
-                        setPageSize(newPageSize);
-                    },
-                } : false}
-            />
+            <div className="overflow-x-auto rounded-lg shadow-lg">
+                <Table<Product>
+                    dataSource={data?.products}
+                    columns={columns}
+                    rowKey="id"
+                    loading={isLoading}
+                    bordered
+                    scroll={{ x: 800 }}
+                    pagination={!showAll ? {
+                        current: page,
+                        position: ['bottomCenter'],
+                        pageSize: pageSize,
+                        total: data?.total,
+                        showSizeChanger: true,
+                        pageSizeOptions: ['5', '15', '20', '50', '100'],
+                        onChange: (newPage, newPageSize) => {
+                            setPage(newPage);
+                            setPageSize(newPageSize);
+                        },
+                    } : false}
+                />
+            </div>
         </div>
     );
 };
