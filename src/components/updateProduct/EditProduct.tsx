@@ -68,7 +68,7 @@ const EditProduct = () => {
     }
 
     return (
-        <div className="my-10 max-w-3xl w-full mx-auto px-5">
+        <div className="my-12 max-w-3xl w-full mx-auto px-5">
             <h2 className="mb-8 font-bold text-3xl">Edit {data?.title}'s Details</h2>
             <Form
                 form={form}
@@ -234,8 +234,6 @@ const EditProduct = () => {
                         </Flex>
                     </div>
                 </Form.Item>
-
-
             </Form>
         </div>
     );

@@ -92,8 +92,8 @@ const ProductsList = () => {
     };
 
     return (
-        <div className="lg:container mx-5 lg:mx-auto">
-            <h2 className="text-center text-3xl font-semibold mx-auto mt-12">Products List</h2>
+        <div className="lg:container mx-5 lg:mx-auto my-12">
+            <h2 className="text-center text-3xl font-semibold mx-auto">Products List</h2>
             <div className="flex justify-end">
                 <Button
                     type="default"

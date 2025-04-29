@@ -10,7 +10,8 @@ interface UpdateProductProps {
     updatedData: Partial<NewProduct>;
 }
 
-const UpdateProduct: React.FC<UpdateProductProps> = ({ updatedData }) => {
+function UpdateProduct(props: UpdateProductProps) {
+    const { updatedData } = props;
     const { id } = useParams<{ id: string }>();
     const [updateProduct, { isLoading, isError }] = useUpdateProductMutation();
 
@@ -56,6 +57,6 @@ const UpdateProduct: React.FC<UpdateProductProps> = ({ updatedData }) => {
             Update Product
         </Button>
     );
-};
+}
 
 export default UpdateProduct;

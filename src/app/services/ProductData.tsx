@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// Define types for Product and NewProduct
+// Define types for Category, Product and NewProduct
 export interface Product {
     id: number;
     title: string;

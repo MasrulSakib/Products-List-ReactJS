@@ -30,7 +30,7 @@ const ProductDetails = () => {
     }
 
     return (
-        <div className="lg:container lg:mx-auto mx-5 mt-6 lg:mt-12">
+        <div className="lg:container lg:mx-auto mx-5 my-12">
             <h2 className="mb-8 font-bold text-3xl">{data?.title}'s Details</h2>
             <Card
                 hoverable={true}
@@ -75,7 +75,7 @@ const ProductDetails = () => {
                     }
                 ></Card.Meta>
             </Card>
-            <div className="my-10 flex justify-end">
+            <div className="mt-10 flex justify-end">
                 <Space size="middle">
                     <Button
                         type="default"
