@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router";
 import ProductDetails from "../productDetails/ProductDetails";
 import ProductsList from "../productsList/ProductsList";
 import Root from "../root/Root";
-import UpdateProduct from "../updateProduct/UpdateProduct";
+import EditProduct from "../updateProduct/EditProduct";
 
 export const router = createBrowserRouter([
     {
@@ -19,6 +19,6 @@ export const router = createBrowserRouter([
     },
     {
         path: "update-product/:id",
-        element: <UpdateProduct />,
+        element: <EditProduct />,
     },
 ]);

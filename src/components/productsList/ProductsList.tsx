@@ -5,6 +5,7 @@ import { ColumnsType } from "antd/es/table";
 import { useState } from "react";
 import { Link } from "react-router";
 import "../loader/loader.css"
+import '@ant-design/v5-patch-for-react-19';
 
 const ProductsList = () => {
     const [page, setPage] = useState<number>(1);
@@ -75,7 +76,7 @@ const ProductsList = () => {
     }
 
     if (isError) {
-        return <h1>Oops! Something went wrong...</h1>;
+        return <h1 className="text-red-600 text-xl font-semibold text-center mt-10">Oops! There is an Error!</h1>;
     }
 
     const handleToggleItems = () => {

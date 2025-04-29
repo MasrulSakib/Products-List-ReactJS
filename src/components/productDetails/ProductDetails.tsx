@@ -12,7 +12,7 @@ const ProductDetails = () => {
     const { data, isError, isLoading } = useGetSingleProductQuery(Number(id));
     console.log(data)
     if (isError) {
-        return <h1>Oops! There is an Error!</h1>;
+        return <h1 className="text-red-600 text-xl font-semibold text-center mt-10">Oops! There is an Error!</h1>;
     }
 
     if (isLoading) {
@@ -31,6 +31,7 @@ const ProductDetails = () => {
 
     return (
         <div className="lg:container lg:mx-auto mx-5 mt-6 lg:mt-12">
+            <h2 className="mb-8 font-bold text-3xl">{data?.title}'s Details</h2>
             <Card
                 hoverable={true}
                 className="border-black"
